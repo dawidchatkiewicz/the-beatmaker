@@ -5,9 +5,11 @@ class DrumKit {
 		this.currentKick = 'sounds/kick-classic.wav';
 		this.currentSnare = 'sounds/snare-808.wav';
 		this.currentHihat = 'sounds/hihat-808.wav';
+		this.currentOpenHihat = 'sounds/openhat-808.wav';
 		this.kickAudio = document.querySelector('.kick-sound');
 		this.snareAudio = document.querySelector('.snare-sound');
 		this.hihatAudio = document.querySelector('.hihat-sound');
+		this.openHihatAudio = document.querySelector('.openhh-sound');
 		this.index = 0;
 		this.bpm = 150;
 		this.isPlaying = null;
@@ -38,6 +40,10 @@ class DrumKit {
 				if (bar.classList.contains('hihat-pad')) {
 					this.hihatAudio.currentTime = 0;
 					this.hihatAudio.play();
+				}
+				if (bar.classList.contains('openhh-pad')) {
+					this.openHihatAudio.currentTime = 0;
+					this.openHihatAudio.play();
 				}
 			}
 		});
@@ -78,6 +84,9 @@ class DrumKit {
 			case 'hihat-select':
 				this.hihatAudio.src = selectionValue;
 				break;
+			case 'openhh-select':
+				this.openHihatAudio.src = selectionValue;
+				break;
 		}
 	}
 	mute(e) {
@@ -94,6 +103,9 @@ class DrumKit {
 				case '2':
 					this.hihatAudio.volume = 0;
 					break;
+				case '3':
+					this.openHihatAudio.volume = 0;
+					break;
 			}
 		} else {
 			switch (muteIndex) {
@@ -105,6 +117,9 @@ class DrumKit {
 					break;
 				case '2':
 					this.hihatAudio.volume = 1;
+					break;
+				case '3':
+					this.openHihatAudio.volume = 1;
 					break;
 			}
 		}
@@ -118,9 +133,9 @@ class DrumKit {
 		this.bpm = e.target.value;
 		clearInterval(this.isPlaying);
 		this.isPlaying = null;
-		const playBtn = document.querySelector('.play')
-		if (playBtn.classList.contains('active')){
-			this.start()
+		const playBtn = document.querySelector('.play');
+		if (playBtn.classList.contains('active')) {
+			this.start();
 		}
 	}
 }

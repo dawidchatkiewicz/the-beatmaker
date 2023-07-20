@@ -1,3 +1,15 @@
+:root {
+	--body-color: #000000;
+	--background-color: #1a1a1a;
+	--graylish: #ececec;
+	--red: #f94144;
+	--green: #90be6d;
+	--yellow: #f9c74f;
+	--aqua: #43aa8b;
+	--blue: #577590;
+	--orange: #f3722c;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -5,77 +17,98 @@
 }
 body {
 	font-family: 'Bebas Neue', sans-serif;
-	background-color: #fff;
+	background-color: var(--body-color);
+	min-height: 100vh;
+	color: #ececec;
 }
 i,
 svg {
 	pointer-events: none;
 }
 h1 {
-	font-size: 5rem;
-	margin-bottom: 3rem;
+	font-size: 2.5rem;
+	text-align: center;
 	letter-spacing: 0.4rem;
 }
 h2 {
-	width: 80px;
-	font-size: 1.6rem;
+	width: 60px;
+	font-size: 1.2rem;
 	letter-spacing: 0.2rem;
+}
+.top-bar {
+	max-width: 1200px;
+	margin: 5rem auto .5rem ;
+	padding: 50px 100px;
+	background-color: var(--background-color);
+	border-radius: 15px;
+}
+.bottom-bar {
+	max-width: 1200px;
+	margin: .5rem auto;
+	padding: 50px 100px;
+	background-color: var(--background-color);
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.sequencer {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 50px 100px;
+	background-color: var(--background-color);
+	border-radius: 15px;
+}
+.snare-track,
+.kick-track,
+.hihat-track,
+.openhh-track {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 4rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .kick-pad,
 .snare-pad,
-.hihat-pad {
-	width: 3rem;
-	height: 3rem;
+.hihat-pad,
+.openhh-pad {
+	width: 2rem;
+	height: 2rem;
 	margin: 1rem 0.2rem;
 	cursor: pointer;
+	background-color: var(--graylish);
 }
-.kick-pad {
-	background-color: rgb(243, 159, 243);
-}
-.snare-pad {
-	background-color: rgb(236, 216, 149);
-}
-.hihat-pad {
-	background-color: rgb(146, 231, 172);
-}
+
 .kick-pad.active {
-	background-color: rgb(255, 21, 255);
+	background-color: var(--red);
 }
 .snare-pad.active {
-	background-color: rgb(255, 197, 8);
+	background-color: var(--green);
 }
 .hihat-pad.active {
-	background-color: rgb(2, 255, 78);
+	background-color: var(--yellow);
+}
+.openhh-pad.active {
+	background-color: var(--aqua);
 }
 .snare,
 .kick,
-.hihat {
+.hihat,
+.openhh {
 	display: flex;
 }
-.snare-track,
-.kick-track,
-.hihat-track {
-	display: flex;
-	justify-content: space-between;
-	width: 70%;
-	align-items: center;
-}
+
 .controls {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex: 1;
-	margin: 0rem 2rem;
+	margin: 0rem 2rem 0rem 0rem;
 }
-.sequencer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	flex-direction: column;
-	max-width: 100%;
-}
+
 .controls button {
 	padding: 0.6rem 0.5rem 0.5rem 0.5rem;
 	border: none;
@@ -85,28 +118,44 @@ h2 {
 	cursor: pointer;
 	font-size: 1rem;
 	transition: all 0.1s ease;
-	margin: 2rem;
+	margin: 0rem 2rem;
 }
 
 .pad {
 	transition: all 0.2s ease;
+	border-radius: 3px;
 }
 .play {
-	padding: 1rem 2rem;
+	font-family: 'Bebas Neue', sans-serif;
+	padding: 0.5rem 2rem 0.4rem 2rem;
 	font-size: 1.5rem;
 	background-color: #4b4949;
 	color: #fff;
 	border: none;
 	cursor: pointer;
 	margin-top: 3rem;
+	border-radius: 25px;
 }
 select {
-	padding: 0.5rem;
-	font-size: 1rem;
+	padding: 0.3rem;
+	font-size: 0.9rem;
 	width: 10rem;
-	border: 1px solid #b3b3b3;
+	border: none;
 	border-radius: 15px;
 	cursor: pointer;
+	color: var(--graylish);
+}
+select#kick-select {
+	background-color: var(--red);
+}
+select#snare-select {
+	background-color: var(--green);
+}
+select#hihat-select {
+	background-color: var(--yellow);
+}
+select#openhh-select {
+	background-color: var(--aqua);
 }
 option {
 	border: none;
@@ -114,7 +163,7 @@ option {
 }
 
 .mute.active {
-	background-color: #f82020;
+	background-color: var(--red);
 }
 
 .tempo {
