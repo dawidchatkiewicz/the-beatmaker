@@ -4,7 +4,7 @@
 	--graylish: #ececec;
 	--red: #f94144;
 	--green: #90be6d;
-	--yellow: #f9c74f;
+	--yellow: #d6aa44;
 	--aqua: #43aa8b;
 	--blue: #577590;
 	--orange: #f3722c;
@@ -31,21 +31,28 @@ h1 {
 	letter-spacing: 0.4rem;
 }
 h2 {
-	width: 60px;
-	font-size: 1.2rem;
-	letter-spacing: 0.2rem;
+	width: 50px;
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+}
+.container {
+	padding: 0.7rem;
+	border: 5px solid var(--graylish);
+	max-width: 1200px;
+	margin: 5rem auto 5rem;
+	border-radius: 25px;
 }
 .top-bar {
 	max-width: 1200px;
-	margin: 5rem auto .5rem ;
-	padding: 50px 100px;
+	margin: 0 auto  0.7rem;
+	padding: 50px 50px;
 	background-color: var(--background-color);
 	border-radius: 15px;
 }
 .bottom-bar {
 	max-width: 1200px;
-	margin: .5rem auto;
-	padding: 50px 100px;
+	margin: .7rem auto 0;
+	padding: 5px 50px;
 	background-color: var(--background-color);
 	border-radius: 15px;
 	display: flex;
@@ -56,7 +63,7 @@ h2 {
 .sequencer {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 50px 100px;
+	padding: 50px 30px;
 	background-color: var(--background-color);
 	border-radius: 15px;
 }
@@ -75,9 +82,9 @@ h2 {
 .snare-pad,
 .hihat-pad,
 .openhh-pad {
-	width: 2rem;
-	height: 2rem;
-	margin: 1rem 0.2rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: 0.6rem 0.3rem;
 	cursor: pointer;
 	background-color: var(--graylish);
 }
@@ -106,7 +113,7 @@ h2 {
 	justify-content: space-between;
 	align-items: center;
 	flex: 1;
-	margin: 0rem 2rem 0rem 0rem;
+	margin: 0rem 1rem 0rem 0rem;
 }
 
 .controls button {
@@ -116,9 +123,9 @@ h2 {
 	background-color: #696767;
 	color: #fff;
 	cursor: pointer;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	transition: all 0.1s ease;
-	margin: 0rem 2rem;
+	margin: 0rem 1.5rem;
 }
 
 .pad {

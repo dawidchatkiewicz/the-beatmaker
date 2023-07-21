@@ -11,7 +11,7 @@ class DrumKit {
 		this.hihatAudio = document.querySelector('.hihat-sound');
 		this.openHihatAudio = document.querySelector('.openhh-sound');
 		this.index = 0;
-		this.bpm = 150;
+		this.bpm = 100;
 		this.isPlaying = null;
 		this.selects = document.querySelectorAll('select');
 		this.muteBtns = document.querySelectorAll('.mute');
@@ -50,7 +50,7 @@ class DrumKit {
 		this.index++;
 	}
 	start() {
-		const interval = (60 / this.bpm) * 1000;
+		const interval = (30 / this.bpm) * 1000;
 		//Check if playing
 		if (!this.isPlaying) {
 			this.isPlaying = setInterval(() => {
