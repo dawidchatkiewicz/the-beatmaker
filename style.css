@@ -1,13 +1,17 @@
 :root {
 	--body-color: #000000;
 	--background-color: #1a1a1a;
-	--graylish: #ececec;
-	--red: #f94144;
-	--green: #90be6d;
-	--yellow: #d6aa44;
-	--aqua: #43aa8b;
-	--blue: #577590;
-	--orange: #f3722c;
+	--base-font-color: #dbdbdb;
+	--accent: #4cc9f0;
+	--red: #f72525;
+	--kick: #f72585;
+	--snare: #b5179e;
+	--hihat: #7209b7;
+	--open-hihat: #560bad;
+	--crash: #480ca8;
+	--tom: #3a0ca3;
+	--clap: #3f37c9;
+	--shaker: #4361ee;
 }
 
 * {
@@ -18,8 +22,8 @@
 body {
 	font-family: 'Bebas Neue', sans-serif;
 	background-color: var(--body-color);
-	min-height: 100vh;
-	color: #ececec;
+	max-height: 100vh;
+	color: var(--base-font-color);
 }
 i,
 svg {
@@ -27,8 +31,8 @@ svg {
 }
 h1 {
 	font-size: 2.5rem;
-	text-align: center;
-	letter-spacing: 0.4rem;
+	
+	letter-spacing: 0.8rem;
 }
 h2 {
 	width: 50px;
@@ -37,74 +41,98 @@ h2 {
 }
 .container {
 	padding: 0.7rem;
-	border: 5px solid var(--graylish);
+	border: 5px solid var(--base-font-color);
 	max-width: 1200px;
-	margin: 5rem auto 5rem;
+	margin: 2rem auto 0rem;
 	border-radius: 25px;
 }
 .top-bar {
 	max-width: 1200px;
-	margin: 0 auto  0.7rem;
-	padding: 50px 50px;
+	margin: 0 auto 0.7rem;
+	padding: 30px 50px;
 	background-color: var(--background-color);
 	border-radius: 15px;
 }
 .bottom-bar {
 	max-width: 1200px;
-	margin: .7rem auto 0;
+	margin: 0.7rem auto 0;
 	padding: 5px 50px;
 	background-color: var(--background-color);
 	border-radius: 15px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
 }
 .sequencer {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 50px 30px;
+	padding: 30px 30px;
 	background-color: var(--background-color);
 	border-radius: 15px;
 }
 .snare-track,
 .kick-track,
 .hihat-track,
-.openhh-track {
+.openhh-track,
+.crash-track,
+.tom-track,
+.clap-track,
+.shaker-track {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 4rem;
+	height: 3.5rem;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .kick-pad,
 .snare-pad,
 .hihat-pad,
-.openhh-pad {
+.openhh-pad,
+.crash-pad,
+.tom-pad,
+.clap-pad,
+.shaker-pad {
 	width: 2.5rem;
 	height: 2.5rem;
 	margin: 0.6rem 0.3rem;
 	cursor: pointer;
-	background-color: var(--graylish);
+	background-color: var(--base-font-color);
 }
 
 .kick-pad.active {
-	background-color: var(--red);
+	background-color: var(--kick);
 }
 .snare-pad.active {
-	background-color: var(--green);
+	background-color: var(--snare);
 }
 .hihat-pad.active {
-	background-color: var(--yellow);
+	background-color: var(--hihat);
 }
 .openhh-pad.active {
-	background-color: var(--aqua);
+	background-color: var(--open-hihat);
+}
+.crash-pad.active {
+	background-color: var(--crash);
+}
+.tom-pad.active {
+	background-color: var(--tom);
+}
+.clap-pad.active {
+	background-color: var(--clap);
+}
+.shaker-pad.active {
+	background-color: var(--shaker);
 }
 .snare,
 .kick,
 .hihat,
-.openhh {
+.openhh,
+.crash,
+.tom,
+.clap,
+.shaker {
 	display: flex;
 }
 
@@ -120,8 +148,8 @@ h2 {
 	padding: 0.6rem 0.5rem 0.5rem 0.5rem;
 	border: none;
 	border-radius: 50%;
-	background-color: #696767;
-	color: #fff;
+	background-color: var(--accent);
+	color: var(--base-font-color);
 	cursor: pointer;
 	font-size: 0.75rem;
 	transition: all 0.1s ease;
@@ -132,15 +160,20 @@ h2 {
 	transition: all 0.2s ease;
 	border-radius: 3px;
 }
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .play {
 	font-family: 'Bebas Neue', sans-serif;
-	padding: 0.5rem 2rem 0.4rem 2rem;
-	font-size: 1.5rem;
-	background-color: #4b4949;
-	color: #fff;
+	padding: 0.7rem 2rem 0.4rem 2rem;
+	font-size: 1.8rem;
+	background-color: var(--accent);
+	color: var(--graylish);
 	border: none;
 	cursor: pointer;
-	margin-top: 3rem;
+	margin: 1rem;
 	border-radius: 25px;
 }
 select {
@@ -153,16 +186,28 @@ select {
 	color: var(--graylish);
 }
 select#kick-select {
-	background-color: var(--red);
+	background-color: var(--kick);
 }
 select#snare-select {
-	background-color: var(--green);
+	background-color: var(--snare);
 }
 select#hihat-select {
-	background-color: var(--yellow);
+	background-color: var(--hihat);
 }
 select#openhh-select {
-	background-color: var(--aqua);
+	background-color: var(--open-hihat);
+}
+select#crash-select {
+	background-color: var(--crash);
+}
+select#tom-select {
+	background-color: var(--tom);
+}
+select#clap-select {
+	background-color: var(--clap);
+}
+select#shaker-select {
+	background-color: var(--shaker);
 }
 option {
 	border: none;
@@ -173,24 +218,86 @@ option {
 	background-color: var(--red);
 }
 
-.tempo {
-	margin: 3rem;
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type='range'] {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+	margin: 1rem 4rem 1rem 0;
 	width: 50%;
 }
-.tempo-slider {
-	padding: 0.1rem;
-	/* -webkit-appearance: none; */
-	margin: 1rem 0;
-	width: 100%;
-	position: relative;
-	background-color: rgb(90, 90, 90);
-	cursor: pointer;
-	border-radius: 10px;
+
+/* Removes default focus */
+input[type='range']:focus {
+	outline: none;
 }
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type='range']::-webkit-slider-runnable-track {
+	background-color: var(--accent);
+	border-radius: 0.5rem;
+	height: 0.5rem;
+}
+
+/* slider thumb */
+input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none; /* Override default look */
+	appearance: none;
+	margin-top: -12px; /* Centers thumb on the track */
+
+	/*custom styles*/
+	background-color: var(--accent);
+	height: 2rem;
+	width: 0.8rem;
+}
+
+input[type='range']:focus::-webkit-slider-thumb {
+	border: 1px solid var(--accent);
+	outline: 3px solid var(--accent);
+	outline-offset: 0.125rem;
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type='range']::-moz-range-track {
+	background-color: var(--accent);
+	border-radius: 0.5rem;
+	height: 0.5rem;
+}
+
+/* slider thumb */
+input[type='range']::-moz-range-thumb {
+	border: none; /*Removes extra border that FF applies*/
+	border-radius: 0; /*Removes default border-radius that FF applies*/
+
+	/*custom styles*/
+	background-color: var(--accent);
+	height: 2rem;
+	width: 1rem;
+}
+
+input[type='range']:focus::-moz-range-thumb {
+	border: 1px solid var(--accent);
+	outline: 3px solid var(--accent);
+	outline-offset: 0.125rem;
+}
+
+.tempo {
+	margin: 3rem 0;
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .tempo p {
 	font-size: 1.5rem;
-	margin: 2rem;
-	text-align: center;
+	margin: 1rem 0;
+	text-align: left;
+	width: 150px;
 }
 
 @keyframes playTrack {

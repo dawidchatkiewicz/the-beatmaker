@@ -6,10 +6,18 @@ class DrumKit {
 		this.currentSnare = 'sounds/snare-808.wav';
 		this.currentHihat = 'sounds/hihat-808.wav';
 		this.currentOpenHihat = 'sounds/openhat-808.wav';
+		this.currentCrash = 'sounds/crash-808.wav';
+		this.currentTom = 'sounds/tom-808.wav';
+		this.currentClap = 'sounds/clap-808.wav';
+		this.currentShaker = 'sounds/shaker-analog.wav';
 		this.kickAudio = document.querySelector('.kick-sound');
 		this.snareAudio = document.querySelector('.snare-sound');
 		this.hihatAudio = document.querySelector('.hihat-sound');
 		this.openHihatAudio = document.querySelector('.openhh-sound');
+		this.crashAudio = document.querySelector('.crash-sound');
+		this.tomAudio = document.querySelector('.tom-sound');
+		this.clapAudio = document.querySelector('.clap-sound');
+		this.shakerAudio = document.querySelector('.shaker-sound');
 		this.index = 0;
 		this.bpm = 100;
 		this.isPlaying = null;
@@ -44,6 +52,22 @@ class DrumKit {
 				if (bar.classList.contains('openhh-pad')) {
 					this.openHihatAudio.currentTime = 0;
 					this.openHihatAudio.play();
+				}
+				if (bar.classList.contains('crash-pad')) {
+					this.crashAudio.currentTime = 0;
+					this.crashAudio.play();
+				}
+				if (bar.classList.contains('tom-pad')) {
+					this.tomAudio.currentTime = 0;
+					this.tomAudio.play();
+				}
+				if (bar.classList.contains('clap-pad')) {
+					this.clapAudio.currentTime = 0;
+					this.clapAudio.play();
+				}
+				if (bar.classList.contains('shaker-pad')) {
+					this.shakerAudio.currentTime = 0;
+					this.shakerAudio.play();
 				}
 			}
 		});
@@ -87,6 +111,18 @@ class DrumKit {
 			case 'openhh-select':
 				this.openHihatAudio.src = selectionValue;
 				break;
+			case 'crash-select':
+				this.crashAudio.src = selectionValue;
+				break;
+			case 'tom-select':
+				this.tomAudio.src = selectionValue;
+				break;
+			case 'clap-select':
+				this.clapAudio.src = selectionValue;
+				break;
+			case 'shaker-select':
+				this.shakerAudio.src = selectionValue;
+				break;
 		}
 	}
 	mute(e) {
@@ -106,6 +142,18 @@ class DrumKit {
 				case '3':
 					this.openHihatAudio.volume = 0;
 					break;
+				case '4':
+					this.crashAudio.volume = 0;
+					break;
+				case '5':
+					this.tomAudio.volume = 0;
+					break;
+				case '6':
+					this.clapAudio.volume = 0;
+					break;
+				case '7':
+					this.shakerAudio.volume = 0;
+					break;
 			}
 		} else {
 			switch (muteIndex) {
@@ -120,6 +168,18 @@ class DrumKit {
 					break;
 				case '3':
 					this.openHihatAudio.volume = 1;
+					break;
+				case '4':
+					this.crashAudio.volume = 1;
+					break;
+				case '5':
+					this.tomAudio.volume = 1;
+					break;
+				case '6':
+					this.clapAudio.volume = 1;
+					break;
+				case '7':
+					this.shakerAudio.volume = 1;
 					break;
 			}
 		}
